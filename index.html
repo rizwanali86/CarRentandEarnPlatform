@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CarShare - Pakistan's premier car-sharing platform. Rent quality vehicles or earn money by listing your car.">
+  <title>CarShare - Rent & Earn | Pakistan's Car Sharing Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Note: Add your Google Maps API key in the script section below -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="loader-wrapper" id="loader">
+    <div class="loader"></div>
+    <div class="loader-text"><span class="blue">Car</span><span class="green">Share</span></div>
+  </div>
+
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo"><span class="blue">Car</span><span class="green">Share</span></div>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#earn">List Car</a></li>
+        <li><a href="#cars">Cars</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li id="auth-links">
+          <a href="#" class="login-btn" onclick="event.preventDefault();initLoginPage()"
+            style="color:#007bff;font-weight:600;display:flex;align-items:center;gap:5px"><i
+              class="fas fa-sign-in-alt"></i> Login</a>
+        </li>
+        <li id="signup-link">
+          <a href="#" onclick="event.preventDefault();initSignupPage()"><button class="btn btn-green"
+              style="padding:10px 24px;font-size:0.95rem;display:flex;align-items:center;gap:8px"><i
+                class="fas fa-user-plus"></i> Sign Up</button></a>
+        </li>
+        <li id="user-profile" style="display:none">
+          <a href="#" onclick="event.preventDefault();initRenterDashboard()"
+            style="display:flex;align-items:center;gap:8px;background:rgba(0,123,255,0.1);padding:8px 16px;border-radius:25px;color:#007bff;font-weight:600">
+            <i class="fas fa-user-circle" style="font-size:1.3rem"></i>
+            <span id="logged-user-name">User</span>
+          </a>
+        </li>
+        <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+      </ul>
+      <div class="burger" id="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-particles" id="hero-particles"></div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>CarShare – The Smart Way to <span class="blue">Rent</span> & <span class="green">Earn</span></h1>
+          <p>Pakistan's newest car-sharing platform launching soon! We're building a community where you can rent
+            quality vehicles or turn your idle car into a revenue stream. Join us from the start and be part of
+            Pakistan's car-sharing revolution. Early members get exclusive benefits!</p>
+          <div class="hero-btns">
+            <a href="#cars" class="btn btn-blue"><i class="fas fa-car"></i> Explore Cars</a>
+            <a href="#earn" class="btn btn-green"><i class="fas fa-rocket"></i> Join as Owner</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="car-badge" style="background:linear-gradient(135deg,#ff6b6b,#ee5a6f)"><i
+              class="fas fa-rocket"></i> Launching 2026</div>
+          <img src="https://carlo.pk/wp-content/uploads/2025/02/V8-Land-Cruiser-410x230.webp"
+            alt="Modern luxury car">
+          <div class="car-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENHANCED ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About CarShare</h2>
+        <div class="reveal">
+          <p style="text-align:center;max-width:800px;margin:0 auto 60px;font-size:1.2rem;line-height:1.8">CarShare is
+            an exciting new venture launching to revolutionize car rentals in Pakistan. We're building a platform that
+            connects car owners with renters, creating a sustainable, community-driven transportation ecosystem. Our
+            mission is to make quality vehicles accessible to everyone while helping car owners turn their idle cars
+            into earning assets. Join us on this journey as we shape the future of car sharing in Pakistan!</p>
+        </div>
+
+        <!-- Animated Stats -->
+        <div class="stats-animated reveal">
+          <div>
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Early Adopters</div>
+          </div>
+          <div>
+            <div class="stat-number stat-green" data-target="20">0</div>
+            <div class="stat-label">Initial Fleet</div>
+          </div>
+          <div>
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Cities (Starting)</div>
+          </div>
+          <div>
+            <div class="stat-number stat-green" data-target="100">0</div>
+            <div class="stat-label">% Commitment</div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <h3 style="text-align:center;font-size:2rem;margin:80px 0 40px">Our Journey</h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-content" style="grid-column:1">
+              <div class="timeline-year">2024</div>
+              <h4>The Idea is Born</h4>
+              <p>Identified the need for a trusted car-sharing platform in Pakistan</p>
+            </div>
+            <div style="grid-column:2"></div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div style="grid-column:1"></div>
+            <div class="timeline-content" style="grid-column:2">
+              <div class="timeline-year">2025</div>
+              <h4>Development Phase</h4>
+              <p>Building the platform, creating partnerships, and preparing for launch</p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-content" style="grid-column:1">
+              <div class="timeline-year">2026</div>
+              <h4>Official Launch</h4>
+              <p>Starting operations in Karachi with initial fleet of quality vehicles</p>
+            </div>
+            <div style="grid-column:2"></div>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div style="grid-column:1"></div>
+            <div class="timeline-content" style="grid-column:2">
+              <div class="timeline-year"
+                style="background:linear-gradient(135deg,#007bff,#28a745);-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+                Coming Soon</div>
+              <h4>Expansion Plans</h4>
+              <p>Growing to major cities: Lahore, Islamabad, Rawalpindi, Faisalabad</p>
+            </div>
+            <div class="timeline-dot" style="background:#28a745"></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-content" style="grid-column:1">
+              <div class="timeline-year"
+                style="background:linear-gradient(135deg,#007bff,#28a745);-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+                Our Vision</div>
+              <h4>Nationwide Coverage</h4>
+              <p>Becoming Pakistan's most trusted car-sharing platform across 50+ cities</p>
+            </div>
+            <div style="grid-column:2"></div>
+            <div class="timeline-dot" style="background:#28a745"></div>
+          </div>
+        </div>
+
+        <!-- Team Section -->
+        <h3 style="text-align:center;font-size:2rem;margin:80px 0 40px">Meet Our Team</h3>
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
+                alt="CEO">
+            </div>
+            <div class="team-name">Ahmed Khan</div>
+            <div class="team-role">CEO & Founder</div>
+            <p class="team-bio">Visionary entrepreneur with 15+ years in tech and transportation</p>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+                alt="CTO">
+            </div>
+            <div class="team-name">Sara Ali</div>
+            <div class="team-role">CTO</div>
+            <p class="team-bio">Tech expert building scalable platforms for the future</p>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200"
+                alt="Operations">
+            </div>
+            <div class="team-name">Hassan Raza</div>
+            <div class="team-role">Operations Head</div>
+            <p class="team-bio">Logistics specialist ensuring smooth operations nationwide</p>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
+                alt="Support">
+            </div>
+            <div class="team-name">Ayesha Malik</div>
+            <div class="team-role">Customer Support Lead</div>
+            <p class="team-bio">Dedicated to providing exceptional customer experiences 24/7</p>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
+                alt="Marketing">
+            </div>
+            <div class="team-name">Bilal Ahmed</div>
+            <div class="team-role">Marketing Manager</div>
+            <p class="team-bio">Creative marketer connecting communities across Pakistan</p>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+                alt="Fleet">
+            </div>
+            <div class="team-name">Usman Tariq</div>
+            <div class="team-role">Fleet Manager</div>
+            <p class="team-bio">Ensuring all vehicles meet our high quality standards</p>
+          </div>
+        </div>
+
+        <!-- Core Values -->
+        <h3 style="text-align:center;font-size:2rem;margin:80px 0 40px">Our Core Values</h3>
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>Trust & Safety</h4>
+            <p>Every rental is insured and users are verified for peace of mind</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+            <h4>Innovation</h4>
+            <p>Leveraging technology to make car sharing simple and efficient</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fas fa-heart"></i></div>
+            <h4>Customer First</h4>
+            <p>Your satisfaction is our priority with 24/7 dedicated support</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fas fa-leaf"></i></div>
+            <h4>Sustainability</h4>
+            <p>Reducing car ownership promotes eco-friendly transportation</p>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges reveal">
+          <div class="trust-badge">
+            <i class="fas fa-lock"></i>
+            <span>256-bit SSL Encrypted</span>
+          </div>
+          <div class="trust-badge">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Business</span>
+          </div>
+          <div class="trust-badge">
+            <i class="fas fa-user-shield"></i>
+            <span>Customer Protected</span>
+          </div>
+          <div class="trust-badge">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section" style="background:var(--sec)">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Flexible Rentals</h3>
+            <p>Daily, weekly, or monthly options tailored to your needs</p>
+          </div>
+          <div class="service-card reveal">
+            <i class="fas fa-user-tie"></i>
+            <h3>Driver Options</h3>
+            <p>Choose self-drive or hire a professional driver</p>
+          </div>
+          <div class="service-card reveal">
+            <i class="fas fa-building"></i>
+            <h3>Corporate Fleet</h3>
+            <p>Special packages for events and corporate needs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="earn" class="section">
+      <div class="container">
+        <h2 class="section-title">Earn with Your Car</h2>
+        <div class="earn-card reveal">
+          <div class="split-view">
+            <div class="split"><span class="percent">60%</span>
+              <p>Owner's Earnings</p>
+            </div>
+            <div class="split"><span class="percent">40%</span>
+              <p>Platform Fee</p>
+            </div>
+          </div>
+          <p style="margin-bottom:20px">Let your car pay for itself. List your vehicle and earn passive income while we
+            handle insurance, support, and payments.</p>
+          <button class="btn btn-green" id="add-car-btn" style="width:100%"><i class="fas fa-plus-circle"></i> Add Your
+            Car</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cars" class="section" style="background:var(--sec)">
+      <div class="container">
+        <h2 class="section-title">Available Cars</h2>
+        <div class="search-sort-bar">
+          <input type="text" id="search-cars" class="search-input" placeholder="Search cars...">
+          <select id="sort-cars" class="sort-select">
+            <option value="default">Sort by</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Rating</option>
+          </select>
+        </div>
+        <div class="filter-btns">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Economy">Economy</button>
+          <button class="filter-btn" data-filter="SUV">SUV</button>
+          <button class="filter-btn" data-filter="Luxury">Luxury</button>
+        </div>
+        <div class="car-grid" id="car-grid"></div>
+        <div class="view-all-container" id="view-all-container" style="display:none">
+          <button class="view-all-btn" id="view-all-btn">
+            <span id="view-all-text">View All Cars</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENHANCED CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p style="text-align:center;max-width:600px;margin:0 auto 60px;color:var(--mut)">We're here to help! Reach out
+          through any channel below or fill out the form.</p>
+
+        <div class="contact-wrapper">
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <h3 style="margin-bottom:25px"><i class="fas fa-envelope"></i> Send us a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Mobile Number *</label>
+                <input type="tel" id="contact-phone" required placeholder="+92 3XX XXXXXXX">
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Subject *</label>
+                <select id="contact-subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="rental">Car Rental</option>
+                  <option value="list">List My Car</option>
+                  <option value="support">Technical Support</option>
+                  <option value="partnership">Partnership</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message *</label>
+                <textarea id="contact-message" rows="5" required maxlength="500"></textarea>
+                <div class="char-count"><span id="char-count">0</span>/500</div>
+              </div>
+              <button type="submit" class="btn btn-blue" style="width:100%">
+                <i class="fas fa-paper-plane"></i> Send Message
+                <span class="loading" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Channels -->
+          <div>
+            <div class="contact-channels">
+              <div class="channel-card" onclick="window.location.href='tel:+923001234567'">
+                <div class="channel-icon"><i class="fas fa-phone"></i></div>
+                <div class="channel-info">
+                  <h4>Phone Support</h4>
+                  <p>+92 300 CAR-SHARE</p>
+                  <span class="response-badge">Instant</span>
+                </div>
+              </div>
+              <div class="channel-card" onclick="window.location.href='mailto:support@carshare.pk'">
+                <div class="channel-icon"><i class="fas fa-envelope"></i></div>
+                <div class="channel-info">
+                  <h4>Email Support</h4>
+                  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                      data-cfemail="6d1e181d1d021f192d0e0c1f1e050c1f08431d06">[email&#160;protected]</a></p>
+                  <span class="response-badge">
+                    < 2 hours</span>
+                </div>
+              </div>
+              <div class="channel-card"
+                onclick="window.open('https://wa.me/923001234567?text=Hi, I need help with CarShare', '_blank')">
+                <div class="channel-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="channel-info">
+                  <h4>WhatsApp Chat</h4>
+                  <p>Quick responses on WhatsApp</p>
+                  <span class="response-badge">
+                    < 5 min</span>
+                </div>
+              </div>
+              <div class="channel-card" onclick="document.getElementById('chat-popup').classList.add('active')">
+                <div class="channel-icon"><i class="fas fa-comments"></i></div>
+                <div class="channel-info">
+                  <h4>Live Chat</h4>
+                  <p>Chat with our support team</p>
+                  <span class="response-badge">
+                    < 5 min</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="business-hours">
+              <div class="hours-header">
+                <h4>Business Hours</h4>
+                <span class="status-badge status-open" id="status-badge">Open Now</span>
+              </div>
+              <div class="hours-list">
+                <div class="hour-item"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></div>
+                <div class="hour-item"><span>Saturday</span><span>10:00 AM - 4:00 PM</span></div>
+                <div class="hour-item"><span>Sunday</span><span>Closed</span></div>
+              </div>
+            </div>
+
+            <!-- Google Map -->
+            <div id="map"
+              style="height:350px;border-radius:12px;margin:20px 0;box-shadow:0 5px 20px var(--shd);overflow:hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.1673890524847!2d67.02607831500252!3d24.860735584064683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                width="100%" height="350" style="border:0" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <p style="text-align:center;margin-top:10px;color:var(--mut)">
+              <i class="fas fa-map-marker-alt"></i> Office 123, Clifton, Karachi, Pakistan
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section" style="background:var(--sec)">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div style="max-width:800px;margin:0 auto">
+          <div class="faq-item">
+            <button class="faq-question"><i class="fas fa-car" style="margin-right:10px;color:#007bff"></i>How can I
+              rent a car on CarShare?<i class="fas fa-chevron-down faq-icon"></i></button>
+            <div class="faq-answer">Simply browse our available cars, select your preferred vehicle, choose your rental
+              dates, and complete the booking form. You'll receive confirmation via email with pickup details.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><i class="fas fa-shield-alt" style="margin-right:10px;color:#007bff"></i>Is my
+              car insured during rental?<i class="fas fa-chevron-down faq-icon"></i></button>
+            <div class="faq-answer">Yes! All rentals through CarShare include comprehensive insurance coverage. Your
+              vehicle is protected against damages, theft, and third-party liability during the rental period.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><i class="fas fa-file-alt" style="margin-right:10px;color:#28a745"></i>What
+              documents are required to rent a car?<i class="fas fa-chevron-down faq-icon"></i></button>
+            <div class="faq-answer">You'll need a valid Pakistani CNIC, a valid driving license (minimum 1 year old),
+              and a security deposit. International renters need passport and international driving permit.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ENHANCED FOOTER -->
+  <!-- Newsletter Section -->
+  <div class="footer-newsletter">
+    <div class="container newsletter-content">
+      <h3>Stay Updated with CarShare</h3>
+      <p>Get the latest deals, new car listings, and exclusive offers delivered to your inbox</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Company Info -->
+        <div class="footer-column">
+          <h4><span class="blue">Car</span><span class="green">Share</span></h4>
+          <p>Pakistan's Most Trusted Car Sharing Platform. Connecting car owners with travelers across the nation.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="app-badges">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+              alt="App Store" class="app-badge">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Google Play" class="app-badge">
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="#about"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="#services"><i class="fas fa-chevron-right"></i> How It Works</a>
+            <a href="#cars"><i class="fas fa-chevron-right"></i> Available Cars</a>
+            <a href="#earn"><i class="fas fa-chevron-right"></i> List Your Car</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Blog</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+          </div>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-column">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="#"><i class="fas fa-chevron-right"></i> Help Center</a>
+            <a href="#faq"><i class="fas fa-chevron-right"></i> FAQs</a>
+            <a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Safety Guidelines</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Insurance Info</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Roadside Assistance</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Report an Issue</a>
+          </div>
+        </div>
+
+        <!-- Legal & Payments -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Cancellation Policy</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Refund Policy</a>
+            <a href="#"><i class="fas fa-chevron-right"></i> Data Protection</a>
+          </div>
+          <h4 style="margin-top:30px">Accepted Payments</h4>
+          <div class="payment-methods">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="payment-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard"
+              class="payment-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Card"
+              class="payment-logo">
+          </div>
+          <p style="font-size:0.85rem;margin-top:15px;color:#adb5bd"><i class="fas fa-lock"></i> Secure Payments · SSL
+            Encrypted</p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 CarShare Pakistan. All Rights Reserved. Made with <i class="fas fa-heart"
+            style="color:#e74c3c"></i> in Pakistan | Starting Our Journey</p>
+        <div style="display:flex;gap:20px;align-items:center">
+          <select class="language-selector">
+            <option>🇬🇧 English</option>
+            <option>🇵🇰 اردو</option>
+          </select>
+          <div style="display:flex;gap:15px">
+            <span style="color:#adb5bd;font-size:0.85rem"><i class="fas fa-shield-check"></i> SSL Secured</span>
+            <span style="color:#adb5bd;font-size:0.85rem"><i class="fas fa-rocket"></i> Launching Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Chat Widget -->
+  <div class="chat-widget">
+    <button class="chat-button" onclick="document.getElementById('chat-popup').classList.toggle('active')">
+      <i class="fas fa-comments"></i>
+    </button>
+  </div>
+
+  <div class="chat-popup" id="chat-popup">
+    <div class="chat-header">
+      <div>
+        <strong>CarShare Support</strong>
+        <div style="font-size:0.85rem;opacity:0.9">Online now</div>
+      </div>
+      <span class="chat-close" onclick="document.getElementById('chat-popup').classList.remove('active')">&times;</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-message">
+        <strong>Agent Sara</strong><br>
+        Hi! Welcome to CarShare. How can I help you today?
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button class="chat-send" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="add-car-modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2><i class="fas fa-car"></i> Add Your Car</h2>
+      <form id="add-car-form">
+        <div class="form-group">
+          <label for="car-name">Car Name *</label>
+          <input type="text" id="car-name" required placeholder="Honda City">
+        </div>
+        <div class="form-group">
+          <label for="car-category">Category *</label>
+          <select id="car-category" required>
+            <option value="">Select</option>
+            <option value="Economy">Economy</option>
+            <option value="SUV">SUV</option>
+            <option value="Luxury">Luxury</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="car-price">Price/Day (Rs) *</label>
+          <input type="number" id="car-price" required placeholder="15000" min="1000">
+        </div>
+        <div class="form-group">
+          <label for="car-seats">Seats *</label>
+          <input type="number" id="car-seats" required placeholder="5" min="2" max="12">
+        </div>
+        <div class="form-group">
+          <label for="car-transmission">Transmission *</label>
+          <select id="car-transmission" required>
+            <option value="">Select</option>
+            <option value="Auto">Auto</option>
+            <option value="Manual">Manual</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="car-fuel">Fuel *</label>
+          <select id="car-fuel" required>
+            <option value="">Select</option>
+            <option value="Gasoline">Gasoline</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="car-image">Image URL *</label>
+          <input type="url" id="car-image" required placeholder="https://...">
+        </div>
+        <button type="submit" class="btn btn-green" style="width:100%"><i class="fas fa-check"></i> Add Car</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="booking-modal">
+    <div class="modal-content wide">
+      <button class="close-modal" aria-label="Close">&times;</button>
+
+      <!-- Progress Steps -->
+      <div class="progress-steps" id="progress-steps">
+        <div class="progress-step">
+          <div class="progress-circle active" id="step1-circle">1</div>
+          <span class="progress-label">Booking Details</span>
+        </div>
+        <div class="progress-line" id="progress-line"></div>
+        <div class="progress-step">
+          <div class="progress-circle" id="step2-circle">2</div>
+          <span class="progress-label">Payment</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Booking Form -->
+      <div id="booking-step" class="booking-step">
+        <h2 style="margin-bottom:20px"><i class="fas fa-car"></i> Book Your Car</h2>
+        <div id="modal-car-details"></div>
+
+        <!-- Driver Options -->
+        <div class="driver-options">
+          <div class="driver-option self-drive active" data-option="self-drive">
+            <input type="radio" name="driver-option" value="self-drive" checked>
+            <div class="driver-option-icon"><i class="fas fa-steering-wheel"></i></div>
+            <div class="driver-option-title">Self Drive</div>
+            <div class="driver-option-desc">Drive yourself and enjoy the freedom</div>
+            <span class="driver-option-badge">Save 20%</span>
+          </div>
+          <div class="driver-option with-driver" data-option="with-driver">
+            <input type="radio" name="driver-option" value="with-driver">
+            <div class="driver-option-icon"><i class="fas fa-user-tie"></i></div>
+            <div class="driver-option-title">With Professional Driver</div>
+            <div class="driver-option-desc">Relax while our driver takes you</div>
+            <span class="driver-option-badge">+Rs 2,000/day</span>
+          </div>
+        </div>
+
+        <form id="booking-form">
+          <!-- Common Fields -->
+          <div class="form-group">
+            <label for="pickup-date">Pick-up Date & Time *</label>
+            <input type="datetime-local" id="pickup-date" required>
+          </div>
+          <div class="form-group">
+            <label for="dropoff-date">Drop-off Date & Time *</label>
+            <input type="datetime-local" id="dropoff-date" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-name">Full Name *</label>
+            <input type="text" id="booking-name" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="booking-email">Email Address *</label>
+            <input type="email" id="booking-email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="booking-phone">Mobile Number *</label>
+            <input type="tel" id="booking-phone" required placeholder="+92 3XX XXXXXXX">
+          </div>
+
+          <!-- Self Drive Fields -->
+          <div class="conditional-fields active" id="self-drive-fields">
+            <h3 style="margin:30px 0 20px;color:#007bff"><i class="fas fa-id-card"></i> Verification Documents</h3>
+            <div class="file-upload-wrapper">
+              <label>CNIC Front Side *</label>
+              <div class="file-upload-zone" onclick="document.getElementById('cnic-front').click()">
+                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="file-upload-text">Click or drag to upload</div>
+                <div class="file-upload-hint">JPG, PNG (Max 5MB)</div>
+              </div>
+              <input type="file" id="cnic-front" class="file-upload-input" accept="image/*" required>
+              <div class="file-preview" id="cnic-front-preview">
+                <img class="file-preview-img" alt="CNIC Front">
+                <div class="file-preview-info">
+                  <div class="file-preview-name"></div>
+                  <div class="file-preview-size"></div>
+                </div>
+                <button type="button" class="file-preview-delete"><i class="fas fa-trash"></i> Remove</button>
+              </div>
+            </div>
+
+            <div class="file-upload-wrapper">
+              <label>CNIC Back Side *</label>
+              <div class="file-upload-zone" onclick="document.getElementById('cnic-back').click()">
+                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="file-upload-text">Click or drag to upload</div>
+                <div class="file-upload-hint">JPG, PNG (Max 5MB)</div>
+              </div>
+              <input type="file" id="cnic-back" class="file-upload-input" accept="image/*" required>
+              <div class="file-preview" id="cnic-back-preview">
+                <img class="file-preview-img" alt="CNIC Back">
+                <div class="file-preview-info">
+                  <div class="file-preview-name"></div>
+                  <div class="file-preview-size"></div>
+                </div>
+                <button type="button" class="file-preview-delete"><i class="fas fa-trash"></i> Remove</button>
+              </div>
+            </div>
+
+            <div class="file-upload-wrapper">
+              <label>Driving License *</label>
+              <div class="file-upload-zone" onclick="document.getElementById('license').click()">
+                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="file-upload-text">Click or drag to upload</div>
+                <div class="file-upload-hint">JPG, PNG (Max 5MB) • Must be 1+ year old</div>
+              </div>
+              <input type="file" id="license" class="file-upload-input" accept="image/*" required>
+              <div class="file-preview" id="license-preview">
+                <img class="file-preview-img" alt="License">
+                <div class="file-preview-info">
+                  <div class="file-preview-name"></div>
+                  <div class="file-preview-size"></div>
+                </div>
+                <button type="button" class="file-preview-delete"><i class="fas fa-trash"></i> Remove</button>
+              </div>
+            </div>
+
+            <div class="file-upload-wrapper">
+              <label>Recent Selfie *</label>
+              <div class="file-upload-zone" onclick="document.getElementById('selfie').click()">
+                <div class="file-upload-icon"><i class="fas fa-camera"></i></div>
+                <div class="file-upload-text">Click or drag to upload</div>
+                <div class="file-upload-hint">Clear face photo for verification</div>
+              </div>
+              <input type="file" id="selfie" class="file-upload-input" accept="image/*" required>
+              <div class="file-preview" id="selfie-preview">
+                <img class="file-preview-img circular" alt="Selfie">
+                <div class="file-preview-info">
+                  <div class="file-preview-name"></div>
+                  <div class="file-preview-size"></div>
+                </div>
+                <button type="button" class="file-preview-delete"><i class="fas fa-trash"></i> Remove</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="self-address">Complete Address *</label>
+              <textarea id="self-address" rows="3" required placeholder="House/Flat No, Street, Area, City"
+                maxlength="200"></textarea>
+              <div style="text-align:right;font-size:0.85rem;color:var(--mut);margin-top:5px">
+                <span id="address-count">0</span>/200
+              </div>
+            </div>
+          </div>
+
+          <!-- With Driver Fields -->
+          <div class="conditional-fields" id="with-driver-fields">
+            <h3 style="margin:30px 0 20px;color:#28a745"><i class="fas fa-map-marker-alt"></i> Trip Details</h3>
+            <div class="form-group">
+              <label for="pickup-location">Pick-up Location *</label>
+              <input type="text" id="pickup-location" placeholder="Enter pick-up address">
+            </div>
+            <div class="form-group">
+              <label for="dropoff-location">Drop-off Location *</label>
+              <input type="text" id="dropoff-location" placeholder="Enter drop-off address">
+            </div>
+            <div class="form-group">
+              <label for="driver-contact">Contact Number *</label>
+              <input type="tel" id="driver-contact" placeholder="+92 3XX XXXXXXX">
+            </div>
+          </div>
+
+          <!-- Common Optional Fields -->
+          <h3 style="margin:30px 0 20px"><i class="fas fa-info-circle"></i> Additional Information</h3>
+          <div class="form-group">
+            <label for="emergency-name">Emergency Contact Name</label>
+            <input type="text" id="emergency-name" placeholder="Emergency contact person">
+          </div>
+          <div class="form-group">
+            <label for="emergency-phone">Emergency Contact Number</label>
+            <input type="tel" id="emergency-phone" placeholder="+92 3XX XXXXXXX">
+          </div>
+          <div class="form-group">
+            <label for="special-requirements">Special Requirements</label>
+            <textarea id="special-requirements" rows="2"
+              placeholder="Any special requests? (child seat, GPS, etc.)"></textarea>
+          </div>
+
+          <!-- Price Summary -->
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span class="price-label">Base Rental (<span id="rental-days">0</span> days)</span>
+              <span class="price-value" id="base-price">Rs 0</span>
+            </div>
+            <div class="price-row" id="driver-charge-row" style="display:none">
+              <span class="price-label">Driver Charges (<span id="driver-days">0</span> days × Rs 2,000)</span>
+              <span class="price-value" id="driver-price">Rs 0</span>
+            </div>
+            <div class="price-row">
+              <span class="price-label">Security Deposit <span class="price-badge">Refundable</span></span>
+              <span class="price-value">Rs 10,000</span>
+            </div>
+            <div class="price-row total">
+              <span class="price-label">Total Amount</span>
+              <span class="price-value" id="total-amount">Rs 0</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-blue" id="proceed-payment-btn"
+            style="width:100%;padding:16px;font-size:1.1rem">
+            <i class="fas fa-arrow-right"></i> Proceed to Payment
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Payment -->
+      <div id="payment-step" class="booking-step" style="display:none">
+        <h2 style="margin-bottom:20px"><i class="fas fa-credit-card"></i> Choose Payment Method</h2>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+          <div class="payment-method active" data-method="card">
+            <input type="radio" name="payment-method" value="card" checked>
+            <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+            <div class="payment-method-info">
+              <div class="payment-method-title">Credit / Debit Card</div>
+              <div class="payment-method-desc">Visa, Mastercard</div>
+            </div>
+            <span class="payment-method-badge">Instant</span>
+          </div>
+
+          <div class="payment-method easypaisa" data-method="easypaisa">
+            <input type="radio" name="payment-method" value="easypaisa">
+            <div class="payment-method-icon"><i class="fas fa-wallet"></i></div>
+            <div class="payment-method-info">
+              <div class="payment-method-title">EasyPaisa</div>
+              <div class="payment-method-desc">Mobile Wallet</div>
+            </div>
+          </div>
+
+          <div class="payment-method jazzcash" data-method="jazzcash">
+            <input type="radio" name="payment-method" value="jazzcash">
+            <div class="payment-method-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="payment-method-info">
+              <div class="payment-method-title">JazzCash</div>
+              <div class="payment-method-desc">Mobile Wallet</div>
+            </div>
+          </div>
+
+          <div class="payment-method cash" data-method="cash">
+            <input type="radio" name="payment-method" value="cash">
+            <div class="payment-method-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="payment-method-info">
+              <div class="payment-method-title">Cash on Pickup</div>
+              <div class="payment-method-desc">Pay when collecting car</div>
+            </div>
+            <span class="payment-method-badge">50% Advance</span>
+          </div>
+        </div>
+
+        <!-- Card Payment Details -->
+        <div class="payment-details active" id="card-details">
+          <div class="form-group card-input">
+            <label>Card Number *</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+            <div class="card-logos">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="card-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard"
+                class="card-logo">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Card Holder Name *</label>
+            <input type="text" id="card-name" placeholder="Name on card">
+          </div>
+          <div class="card-row">
+            <div class="form-group">
+              <label>Expiry Date *</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label>CVV *</label>
+              <input type="text" id="card-cvv" placeholder="123" maxlength="3">
+            </div>
+          </div>
+        </div>
+
+        <!-- EasyPaisa Details -->
+        <div class="payment-details" id="easypaisa-details">
+          <div class="form-group">
+            <label>EasyPaisa Account Number *</label>
+            <input type="text" id="easypaisa-number" placeholder="03XXXXXXXXX" maxlength="11">
+          </div>
+          <div class="form-group">
+            <label>Account Holder Name *</label>
+            <input type="text" id="easypaisa-name" placeholder="Your name">
+          </div>
+        </div>
+
+        <!-- JazzCash Details -->
+        <div class="payment-details" id="jazzcash-details">
+          <div class="form-group">
+            <label>JazzCash Mobile Number *</label>
+            <input type="text" id="jazzcash-number" placeholder="03XXXXXXXXX" maxlength="11">
+          </div>
+          <div class="form-group">
+            <label>Account Holder Name *</label>
+            <input type="text" id="jazzcash-name" placeholder="Your name">
+          </div>
+        </div>
+
+        <!-- Cash Payment Warning -->
+        <div class="payment-details" id="cash-details">
+          <div class="payment-warning">
+            <div class="payment-warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="payment-warning-text">
+              <strong>Important:</strong> 50% advance payment (Rs <span id="advance-amount">0</span>) is required online
+              to confirm your booking. The remaining 50% (Rs <span id="remaining-amount">0</span>) will be paid when you
+              collect the car.
+            </div>
+          </div>
+          <p style="margin-top:15px;color:var(--mut)">Please proceed with card payment for advance amount:</p>
+          <div class="form-group card-input" style="margin-top:15px">
+            <label>Card Number *</label>
+            <input type="text" id="cash-card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+          </div>
+          <div class="form-group">
+            <label>Card Holder Name *</label>
+            <input type="text" id="cash-card-name" placeholder="Name on card">
+          </div>
+          <div class="card-row">
+            <div class="form-group">
+              <label>Expiry Date *</label>
+              <input type="text" id="cash-card-expiry" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label>CVV *</label>
+              <input type="text" id="cash-card-cvv" placeholder="123" maxlength="3">
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Amount -->
+        <div class="price-breakdown">
+          <div class="price-row total">
+            <span class="price-label">Amount to Pay</span>
+            <span class="price-value" id="payment-amount">Rs 0</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px">
+          <button type="button" class="btn btn-ghost" id="back-to-booking-btn" style="flex:1">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <button type="button" class="btn btn-green" id="complete-payment-btn"
+            style="flex:2;padding:16px;font-size:1.1rem">
+            <i class="fas fa-lock"></i> Complete Payment
+          </button>
+        </div>
+        <p style="text-align:center;margin-top:15px;font-size:0.85rem;color:var(--mut)">
+          <i class="fas fa-shield-alt"></i> Secure payment • Your information is encrypted
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="success-modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="success-title">Booking Confirmed!</div>
+        <div class="success-message">Your payment was successful</div>
+        <div class="booking-id">Booking ID: <span id="generated-booking-id">CS-XXXXXX</span></div>
+        <p style="color:var(--mut);margin:15px 0">A confirmation email has been sent to <span id="confirm-email"
+            style="font-weight:600"></span></p>
+        <div class="success-actions">
+          <button class="btn btn-blue"><i class="fas fa-download"></i> Download Receipt</button>
+          <button class="btn btn-green"><i class="fas fa-share-alt"></i> Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- ================================================================
+     INNER PAGE: LOGIN
+     ================================================================ -->
+  <div class="inner-page" id="page-login">
+    <div class="login-container">
+      <div class="branding-side">
+        <div class="logo-section">
+          <div class="logo-text">🚗 CarShare</div>
+          <div class="tagline">Pakistan's Most Trusted Car Sharing Platform</div>
+        </div>
+        <div class="trust-badges-login">
+          <div class="badge-login"><span class="badge-number">5000+</span><span class="badge-label">Happy Users</span>
+          </div>
+          <div class="badge-login"><span class="badge-number">1200+</span><span class="badge-label">Listed Cars</span>
+          </div>
+          <div class="badge-login"><span class="badge-number">50+</span><span class="badge-label">Cities</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"CarShare made renting a car so easy! Professional service and great selection.
+            Highly recommended!"</p>
+          <p class="testimonial-author">— Ahmed K., Karachi</p>
+        </div>
+      </div>
+      <div class="form-side">
+        <div class="form-container">
+          <div class="form-header">
+            <h2>Welcome Back!</h2>
+            <p>Login to access your CarShare account</p>
+          </div>
+          <div class="error-message" id="login-error"><i class="fas fa-exclamation-circle"></i> Invalid email or
+            password</div>
+          <form id="login-form">
+            <div class="login-form-group"><label>Email or Phone Number</label><i class="fas fa-user inp-icon"></i><input
+                type="text" id="login-email" placeholder="Enter your email or phone" required></div>
+            <div class="login-form-group"><label>Password</label><i class="fas fa-lock inp-icon"></i><input
+                type="password" id="login-password" placeholder="Enter your password" required><i
+                class="fas fa-eye password-toggle" id="login-pwd-toggle"></i></div>
+            <div class="form-options">
+              <label class="remember-me"><input type="checkbox" id="login-remember"><span>Remember me</span></label>
+              <a href="#" class="forgot-link" id="login-forgot">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn-login" id="login-btn">Login to CarShare</button>
+          </form>
+          <div class="divider">or continue with</div>
+          <div class="social-login">
+            <button class="social-btn google login-social-btn" title="Google"><i class="fab fa-google"></i></button>
+            <button class="social-btn facebook login-social-btn" title="Facebook"><i
+                class="fab fa-facebook-f"></i></button>
+            <button class="social-btn apple login-social-btn" title="Apple"><i class="fab fa-apple"></i></button>
+          </div>
+          <p class="signup-link">Don't have an account? <a href="#"
+              onclick="event.preventDefault();initSignupPage()">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+     INNER PAGE: SIGNUP
+     ================================================================ -->
+  <div class="inner-page" id="page-signup">
+    <div class="signup-container">
+      <div class="branding-side">
+        <div style="text-align:center;margin-bottom:60px">
+          <div class="logo-text">🚗 CarShare</div>
+          <div class="tagline" style="margin-bottom:0">Join Pakistan's #1 Car Sharing Platform</div>
+        </div>
+        <div class="su-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon">✅</div>
+            <div class="benefit-text">
+              <h4>Verified & Secure</h4>
+              <p>All users verified with CNIC & driving license</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-text">
+              <h4>Earn Extra Income</h4>
+              <p>Car owners earn up to 60% revenue share</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🚗</div>
+            <div class="benefit-text">
+              <h4>1200+ Quality Cars</h4>
+              <p>Wide selection across 50+ cities in Pakistan</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text">
+              <h4>Fully Insured</h4>
+              <p>Comprehensive insurance on all rentals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="su-form-side">
+        <div class="su-form-container">
+          <div class="progress-bar" id="progress-bar" style="--progress:0%">
+            <div class="su-step active" data-step="1">
+              <div class="step-circle">1</div>
+              <div class="step-label">Account Type</div>
+            </div>
+            <div class="su-step" data-step="2">
+              <div class="step-circle">2</div>
+              <div class="step-label">Personal Info</div>
+            </div>
+            <div class="su-step" data-step="3">
+              <div class="step-circle">3</div>
+              <div class="step-label">Address</div>
+            </div>
+            <div class="su-step" data-step="4">
+              <div class="step-circle">4</div>
+              <div class="step-label">Documents</div>
+            </div>
+            <div class="su-step" data-step="5">
+              <div class="step-circle">5</div>
+              <div class="step-label">Verify</div>
+            </div>
+          </div>
+          <!-- Step 1 -->
+          <div class="step-content active" data-step="1">
+            <div class="form-header">
+              <h2>Choose Account Type</h2>
+              <p>Select how you want to use CarShare</p>
+            </div>
+            <div class="account-type-grid">
+              <div class="account-card renter" data-type="renter">
+                <div class="account-icon"><i class="fas fa-car"></i></div>
+                <div class="account-title">Rent Cars</div>
+                <ul class="account-benefits">
+                  <li><i class="fas fa-check" style="color:#007bff"></i> Browse 1200+ cars</li>
+                  <li><i class="fas fa-check" style="color:#007bff"></i> Flexible rental periods</li>
+                  <li><i class="fas fa-check" style="color:#007bff"></i> Instant booking</li>
+                  <li><i class="fas fa-check" style="color:#007bff"></i> 24/7 support</li>
+                </ul>
+              </div>
+              <div class="account-card owner" data-type="owner">
+                <div class="account-icon"><i class="fas fa-dollar-sign"></i></div>
+                <div class="account-title">List My Car</div>
+                <ul class="account-benefits">
+                  <li><i class="fas fa-check" style="color:#28a745"></i> Earn passive income</li>
+                  <li><i class="fas fa-check" style="color:#28a745"></i> 60% revenue share</li>
+                  <li><i class="fas fa-check" style="color:#28a745"></i> Full insurance coverage</li>
+                  <li><i class="fas fa-check" style="color:#28a745"></i> You control availability</li>
+                </ul>
+              </div>
+            </div>
+            <div class="su-btn-group"><button class="su-btn su-btn-next" id="su-next-btn-1" disabled>Continue <i
+                  class="fas fa-arrow-right"></i></button></div>
+          </div>
+          <!-- Step 2 -->
+          <div class="step-content" data-step="2">
+            <div class="form-header">
+              <h2>Personal Information</h2>
+              <p>Tell us about yourself</p>
+            </div>
+            <div class="su-form-group"><label>Full Name *</label><input type="text" id="su-fullname"
+                placeholder="Enter your full name"></div>
+            <div class="su-form-row">
+              <div class="su-form-group"><label>Email Address *</label><input type="email" id="su-email"
+                  placeholder="your@email.com"></div>
+              <div class="su-form-group"><label>Phone Number *</label><input type="tel" id="su-phone"
+                  placeholder="+92 3XX XXXXXXX"></div>
+            </div>
+            <div class="su-form-row">
+              <div class="su-form-group"><label>Password *</label><input type="password" id="su-password"
+                  placeholder="Min 8 characters"></div>
+              <div class="su-form-group"><label>Confirm Password *</label><input type="password"
+                  id="su-confirm-password" placeholder="Re-enter password"></div>
+            </div>
+            <div class="su-form-row">
+              <div class="su-form-group"><label>Date of Birth *</label><input type="date" id="su-dob"></div>
+              <div class="su-form-group"><label>Gender</label><select id="su-gender">
+                  <option value="">Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select></div>
+            </div>
+            <div class="su-btn-group"><button class="su-btn su-btn-back" onclick="suPrevStep()"><i
+                  class="fas fa-arrow-left"></i> Back</button><button class="su-btn su-btn-next"
+                onclick="suNextStep()">Continue <i class="fas fa-arrow-right"></i></button></div>
+          </div>
+          <!-- Step 3 -->
+          <div class="step-content" data-step="3">
+            <div class="form-header">
+              <h2>Address Details</h2>
+              <p>Where are you located?</p>
+            </div>
+            <div class="su-form-group"><label>Street Address *</label><input type="text" id="su-street"
+                placeholder="House/Flat No, Street Name"></div>
+            <div class="su-form-row">
+              <div class="su-form-group"><label>City *</label><select id="su-city">
+                  <option value="">Select City</option>
+                  <option>Karachi</option>
+                  <option>Lahore</option>
+                  <option>Islamabad</option>
+                  <option>Rawalpindi</option>
+                  <option>Faisalabad</option>
+                  <option>Multan</option>
+                  <option>Peshawar</option>
+                  <option>Quetta</option>
+                </select></div>
+              <div class="su-form-group"><label>Province *</label><select id="su-province">
+                  <option value="">Select Province</option>
+                  <option>Punjab</option>
+                  <option>Sindh</option>
+                  <option>Khyber Pakhtunkhwa</option>
+                  <option>Balochistan</option>
+                  <option>Gilgit-Baltistan</option>
+                </select></div>
+            </div>
+            <div class="su-form-group"><label>Postal Code</label><input type="text" id="su-postal" placeholder="75500">
+            </div>
+            <div class="su-btn-group"><button class="su-btn su-btn-back" onclick="suPrevStep()"><i
+                  class="fas fa-arrow-left"></i> Back</button><button class="su-btn su-btn-next"
+                onclick="suNextStep()">Continue <i class="fas fa-arrow-right"></i></button></div>
+          </div>
+          <!-- Step 4 -->
+          <div class="step-content" data-step="4">
+            <div class="form-header">
+              <h2>Upload Documents</h2>
+              <p>Required for verification</p>
+            </div>
+            <div class="su-form-group"><label>CNIC Front *</label>
+              <div class="su-file-upload-zone" onclick="document.getElementById('su-cnic-front').click()">
+                <div class="su-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="su-upload-text">Click to upload CNIC Front</div>
+                <div class="su-upload-hint">JPG, PNG (Max 5MB)</div>
+              </div><input type="file" id="su-cnic-front" accept="image/*" style="display:none"
+                onchange="suHandleFile(this,'su-cnic-front-preview')">
+              <div class="su-file-preview" id="su-cnic-front-preview"></div>
+            </div>
+            <div class="su-form-group"><label>CNIC Back *</label>
+              <div class="su-file-upload-zone" onclick="document.getElementById('su-cnic-back').click()">
+                <div class="su-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="su-upload-text">Click to upload CNIC Back</div>
+                <div class="su-upload-hint">JPG, PNG (Max 5MB)</div>
+              </div><input type="file" id="su-cnic-back" accept="image/*" style="display:none"
+                onchange="suHandleFile(this,'su-cnic-back-preview')">
+              <div class="su-file-preview" id="su-cnic-back-preview"></div>
+            </div>
+            <div class="su-form-group"><label>Driving License *</label>
+              <div class="su-file-upload-zone" onclick="document.getElementById('su-license').click()">
+                <div class="su-upload-icon"><i class="fas fa-id-card"></i></div>
+                <div class="su-upload-text">Click to upload License</div>
+                <div class="su-upload-hint">Must be 1+ year old</div>
+              </div><input type="file" id="su-license" accept="image/*" style="display:none"
+                onchange="suHandleFile(this,'su-license-preview')">
+              <div class="su-file-preview" id="su-license-preview"></div>
+            </div>
+            <div class="su-form-group"><label>Selfie *</label>
+              <div class="su-file-upload-zone" onclick="document.getElementById('su-selfie').click()">
+                <div class="su-upload-icon"><i class="fas fa-camera"></i></div>
+                <div class="su-upload-text">Click to upload Selfie</div>
+                <div class="su-upload-hint">Clear face photo</div>
+              </div><input type="file" id="su-selfie" accept="image/*" style="display:none"
+                onchange="suHandleFile(this,'su-selfie-preview')">
+              <div class="su-file-preview" id="su-selfie-preview"></div>
+            </div>
+            <div class="su-btn-group"><button class="su-btn su-btn-back" onclick="suPrevStep()"><i
+                  class="fas fa-arrow-left"></i> Back</button><button class="su-btn su-btn-next"
+                onclick="suNextStep()">Continue <i class="fas fa-arrow-right"></i></button></div>
+          </div>
+          <!-- Step 5 -->
+          <div class="step-content" data-step="5">
+            <div class="form-header">
+              <h2>Verify Your Phone</h2>
+              <p>Enter the 6-digit code sent to <span id="su-phone-display"></span></p>
+            </div>
+            <div class="otp-input"><input type="text" class="otp-digit" maxlength="1"><input type="text"
+                class="otp-digit" maxlength="1"><input type="text" class="otp-digit" maxlength="1"><input type="text"
+                class="otp-digit" maxlength="1"><input type="text" class="otp-digit" maxlength="1"><input type="text"
+                class="otp-digit" maxlength="1"></div>
+            <div class="resend-link">Didn't receive code? <a href="#" onclick="suResendOTP();return false">Resend
+                OTP</a></div>
+            <div class="su-checkbox-group"><label><input type="checkbox" id="su-terms"> I agree to the <a href="#"
+                  style="color:#007bff">Terms & Conditions</a></label></div>
+            <div class="su-checkbox-group"><label><input type="checkbox" id="su-privacy"> I agree to the <a href="#"
+                  style="color:#007bff">Privacy Policy</a></label></div>
+            <div class="su-checkbox-group"><label><input type="checkbox" id="su-marketing"> Send me promotional emails
+                and updates</label></div>
+            <div class="su-btn-group"><button class="su-btn su-btn-back" onclick="suPrevStep()"><i
+                  class="fas fa-arrow-left"></i> Back</button><button class="su-btn su-btn-submit"
+                onclick="suSubmitForm()">Create Account <i class="fas fa-check"></i></button></div>
+          </div>
+          <p class="su-login-link">Already have an account? <a href="#"
+              onclick="event.preventDefault();initLoginPage()">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+     INNER PAGE: RENTER DASHBOARD
+     ================================================================ -->
+  <div class="inner-page" id="page-dashboard-renter">
+    <nav class="dash-navbar">
+      <div style="display:flex;align-items:center">
+        <div class="dash-burger" id="renter-burger"><i class="fas fa-bars"></i></div>
+        <div class="dash-logo">🚗 <span class="blue">Car</span><span class="green">Share</span></div>
+      </div>
+      <div class="dash-search"><i class="fas fa-search"></i><input type="text" placeholder="Search cars, bookings...">
+      </div>
+      <div class="dash-navbar-right">
+        <div class="notif-icon"><i class="fas fa-bell"></i><span class="notif-badge">3</span></div>
+        <div class="user-avatar" id="renter-avatar">A</div>
+        <div class="dash-dropdown" id="renter-dropdown">
+          <div class="dash-dropdown-item" onclick="initProfilePage('renter')"><i class="fas fa-user"></i> My Profile
+          </div>
+          <div class="dash-dropdown-item"><i class="fas fa-cog"></i> Settings</div>
+          <div class="dash-dropdown-item"><i class="fas fa-question-circle"></i> Help</div>
+          <hr style="margin:5px 0;border:none;border-top:1px solid #dee2e6">
+          <div class="dash-dropdown-item" onclick="renterLogout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+        </div>
+      </div>
+    </nav>
+    <aside class="dash-sidebar" id="renter-sidebar">
+      <ul class="dash-sidebar-menu">
+        <li><a href="#" class="dash-sidebar-link active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-car"></i> Browse Cars</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-calendar-check"></i> My Bookings</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-heart"></i> Favorites</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-credit-card"></i> Payments</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-receipt"></i> History</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-comments"></i> Messages</a></li>
+        <li><a href="#" class="dash-sidebar-link"><i class="fas fa-headset"></i> Support</a></li>
+      </ul>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-page-header">
+        <h1>Welcome back, <span id="renter-user-name">Ahmed</span>! 👋</h1>
+        <p>Here's what's happening with your CarShare account today</p>
+      </div>
+      <div class="dash-stats-grid">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon blue"><i class="fas fa-car"></i></div>
+          <div class="dash-stat-info">
+            <h3>2</h3>
+            <p>Active Bookings</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon green"><i class="fas fa-calendar-alt"></i></div>
+          <div class="dash-stat-info">
+            <h3>3</h3>
+            <p>Upcoming Trips</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon orange"><i class="fas fa-wallet"></i></div>
+          <div class="dash-stat-info">
+            <h3>45K</h3>
+            <p>Total Spent (Rs)</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon red"><i class="fas fa-heart"></i></div>
+          <div class="dash-stat-info">
+            <h3>8</h3>
+            <p>Saved Cars</p>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h2>Your Active Bookings</h2><button class="dash-btn dash-btn-outline">View All</button>
+        </div>
+        <div class="booking-grid">
+          <div class="booking-card">
+            <div class="booking-header"><img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=300"
+                class="booking-img">
+              <div class="booking-info">
+                <h3>Honda Civic</h3>
+                <div class="booking-id-txt">ID: #CS-12345</div>
+              </div>
+            </div>
+            <div class="booking-details"><span class="booking-status status-active">Active</span>
+              <div class="detail-row"><span><i class="fas fa-calendar"></i> Pick-up</span><strong>Jan 30, 9:00
+                  AM</strong></div>
+              <div class="detail-row"><span><i class="fas fa-calendar"></i> Return</span><strong>Feb 3, 6:00 PM</strong>
+              </div>
+              <div class="detail-row"><span><i class="fas fa-map-marker-alt"></i>
+                  Location</span><strong>Clifton</strong></div>
+              <div class="booking-actions"><button class="dash-btn dash-btn-primary" style="flex:1">View
+                  Details</button><button class="dash-btn dash-btn-outline">Contact</button></div>
+            </div>
+          </div>
+          <div class="booking-card">
+            <div class="booking-header"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"
+                class="booking-img">
+              <div class="booking-info">
+                <h3>BMW X5</h3>
+                <div class="booking-id-txt">ID: #CS-12346</div>
+              </div>
+            </div>
+            <div class="booking-details"><span class="booking-status status-upcoming">Upcoming</span>
+              <div class="detail-row"><span><i class="fas fa-calendar"></i> Pick-up</span><strong>Feb 5, 10:00
+                  AM</strong></div>
+              <div class="detail-row"><span><i class="fas fa-calendar"></i> Return</span><strong>Feb 10, 8:00
+                  PM</strong></div>
+              <div class="detail-row"><span><i class="fas fa-map-marker-alt"></i> Location</span><strong>DHA
+                  Lahore</strong></div>
+              <div class="booking-actions"><button class="dash-btn dash-btn-primary" style="flex:1">View
+                  Details</button><button class="dash-btn dash-btn-outline">Modify</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h2>Recommended for You 🔥</h2><button class="dash-btn dash-btn-outline">Browse All</button>
+        </div>
+        <div class="dash-car-carousel">
+          <div class="dash-car-card"><img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=400"
+              class="dash-car-img">
+            <div class="dash-car-info">
+              <div class="dash-car-name">Toyota Corolla</div>
+              <div class="dash-car-rating">⭐ 4.5 (28 reviews)</div>
+              <div class="dash-car-price">Rs 8,500<span
+                  style="font-size:.8rem;color:#6c757d;font-weight:normal">/day</span></div>
+            </div>
+          </div>
+          <div class="dash-car-card"><img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400"
+              class="dash-car-img">
+            <div class="dash-car-info">
+              <div class="dash-car-name">Toyota RAV4</div>
+              <div class="dash-car-rating">⭐ 4.8 (45 reviews)</div>
+              <div class="dash-car-price">Rs 21,000<span
+                  style="font-size:.8rem;color:#6c757d;font-weight:normal">/day</span></div>
+            </div>
+          </div>
+          <div class="dash-car-card"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400"
+              class="dash-car-img">
+            <div class="dash-car-info">
+              <div class="dash-car-name">Mercedes C-Class</div>
+              <div class="dash-car-rating">⭐ 4.9 (67 reviews)</div>
+              <div class="dash-car-price">Rs 35,000<span
+                  style="font-size:.8rem;color:#6c757d;font-weight:normal">/day</span></div>
+            </div>
+          </div>
+          <div class="dash-car-card"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400"
+              class="dash-car-img">
+            <div class="dash-car-info">
+              <div class="dash-car-name">Audi A4</div>
+              <div class="dash-car-rating">⭐ 4.7 (52 reviews)</div>
+              <div class="dash-car-price">Rs 28,500<span
+                  style="font-size:.8rem;color:#6c757d;font-weight:normal">/day</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================================================================
+     INNER PAGE: OWNER DASHBOARD
+     ================================================================ -->
+  <div class="inner-page" id="page-dashboard-owner">
+    <nav class="dash-navbar">
+      <div style="display:flex;align-items:center">
+        <div class="dash-burger" id="owner-burger"><i class="fas fa-bars"></i></div>
+        <div class="dash-logo">🚗 <span class="blue">Car</span><span class="green">Share</span></div>
+      </div>
+      <div class="dash-search"><i class="fas fa-search"></i><input type="text" placeholder="Search cars, requests...">
+      </div>
+      <div class="dash-navbar-right">
+        <div class="notif-icon"><i class="fas fa-bell"></i><span class="notif-badge">5</span></div>
+        <div class="user-avatar owner-avatar" id="owner-avatar">O</div>
+        <div class="dash-dropdown" id="owner-dropdown">
+          <div class="dash-dropdown-item" onclick="initProfilePage('owner')"><i class="fas fa-user"></i> My Profile
+          </div>
+          <div class="dash-dropdown-item"><i class="fas fa-cog"></i> Settings</div>
+          <div class="dash-dropdown-item"><i class="fas fa-question-circle"></i> Help</div>
+          <hr style="margin:5px 0;border:none;border-top:1px solid #dee2e6">
+          <div class="dash-dropdown-item" onclick="ownerLogout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+        </div>
+      </div>
+    </nav>
+    <aside class="dash-sidebar" id="owner-sidebar">
+      <ul class="dash-sidebar-menu">
+        <li><a href="#" class="dash-sidebar-link owner-active active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-car"></i> My Cars</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-bell"></i> Rental Requests</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-dollar-sign"></i> Earnings</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-money-check-alt"></i> Payouts</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-star"></i> Reviews</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-chart-line"></i> Analytics</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-comments"></i> Messages</a></li>
+        <li><a href="#" class="dash-sidebar-link owner-active"><i class="fas fa-headset"></i> Support</a></li>
+      </ul>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-page-header">
+        <h1>Hello, <span id="owner-user-name">Owner</span>! 👋</h1>
+        <p>Manage your fleet and track your earnings</p>
+      </div>
+      <div class="dash-stats-grid">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon green"><i class="fas fa-dollar-sign"></i></div>
+          <div class="dash-stat-info">
+            <h3>Rs 85K</h3>
+            <p>Earnings This Month</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon blue"><i class="fas fa-car"></i></div>
+          <div class="dash-stat-info">
+            <h3>3</h3>
+            <p>Active Rentals</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon orange"><i class="fas fa-clipboard-list"></i></div>
+          <div class="dash-stat-info">
+            <h3>5</h3>
+            <p>Pending Requests</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon purple"><i class="fas fa-percentage"></i></div>
+          <div class="dash-stat-info">
+            <h3>78%</h3>
+            <p>Car Utilization</p>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h2>Earnings Overview</h2><button class="dash-btn dash-btn-outline-green">View Details</button>
+        </div>
+        <div class="chart-container">
+          <div style="text-align:center"><i class="fas fa-chart-line"
+              style="font-size:3rem;margin-bottom:15px;display:block;color:#28a745"></i>
+            <p>Last 30 Days Earnings Graph</p>
+            <p style="font-size:1rem;color:#28a745;margin-top:10px;font-weight:bold">Total: Rs 2,45,000</p>
+          </div>
+        </div>
+        <div class="earnings-summary">
+          <div class="earnings-box">
+            <div class="earnings-box-label">Total Lifetime</div>
+            <div class="earnings-box-value" style="color:#28a745">Rs 8,50,000</div>
+          </div>
+          <div class="earnings-box">
+            <div class="earnings-box-label">Avg per Rental</div>
+            <div class="earnings-box-value" style="color:#007bff">Rs 28,500</div>
+          </div>
+          <div class="earnings-box">
+            <div class="earnings-box-label">Next Payout</div>
+            <div class="earnings-box-value" style="color:#17a2b8">Feb 5, 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h2>My Cars</h2><button class="dash-btn dash-btn-success"><i class="fas fa-plus"></i> Add New Car</button>
+        </div>
+        <div class="owner-car-grid">
+          <div class="owner-car-card"><img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=400"
+              class="owner-car-img">
+            <div class="owner-car-info">
+              <div class="owner-car-name">Honda Civic 2022</div><span class="car-status-badge status-rented">Currently
+                Rented</span>
+              <div class="owner-car-stats">
+                <div><i class="fas fa-dollar-sign" style="color:#28a745"></i> Rs 45K/month</div>
+                <div><i class="fas fa-chart-bar" style="color:#007bff"></i> 85%</div>
+              </div>
+              <div class="owner-car-actions"><button class="dash-btn dash-btn-outline-green"
+                  style="font-size:.85rem;padding:8px">Edit</button><button class="dash-btn dash-btn-primary"
+                  style="font-size:.85rem;padding:8px">Analytics</button></div>
+            </div>
+          </div>
+          <div class="owner-car-card"><img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=400"
+              class="owner-car-img">
+            <div class="owner-car-info">
+              <div class="owner-car-name">Toyota Corolla 2021</div><span
+                class="car-status-badge status-available">Available</span>
+              <div class="owner-car-stats">
+                <div><i class="fas fa-dollar-sign" style="color:#28a745"></i> Rs 28K/month</div>
+                <div><i class="fas fa-chart-bar" style="color:#007bff"></i> 65%</div>
+              </div>
+              <div class="owner-car-actions"><button class="dash-btn dash-btn-outline-green"
+                  style="font-size:.85rem;padding:8px">Edit</button><button class="dash-btn dash-btn-primary"
+                  style="font-size:.85rem;padding:8px">Analytics</button></div>
+            </div>
+          </div>
+          <div class="owner-car-card"><img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400"
+              class="owner-car-img">
+            <div class="owner-car-info">
+              <div class="owner-car-name">Toyota RAV4 2023</div><span
+                class="car-status-badge status-maintenance">Maintenance</span>
+              <div class="owner-car-stats">
+                <div><i class="fas fa-dollar-sign" style="color:#28a745"></i> Rs 52K/month</div>
+                <div><i class="fas fa-chart-bar" style="color:#007bff"></i> 72%</div>
+              </div>
+              <div class="owner-car-actions"><button class="dash-btn dash-btn-outline-green"
+                  style="font-size:.85rem;padding:8px">Edit</button><button class="dash-btn dash-btn-primary"
+                  style="font-size:.85rem;padding:8px">Analytics</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h2>Pending Rental Requests (5)</h2>
+        </div>
+        <div class="request-card">
+          <div class="request-header">
+            <div class="renter-avatar">A</div>
+            <div class="renter-info">
+              <h3>Ahmed Khan</h3>
+              <div class="renter-rating">⭐ 4.8 (12 trips) • <span style="color:#28a745;font-weight:600">Verified</span>
+              </div>
+            </div>
+          </div>
+          <div class="request-details">
+            <div class="detail-item">
+              <div class="detail-label">Car Requested</div>
+              <div class="detail-value">Honda Civic 2022</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Duration</div>
+              <div class="detail-value">Feb 1 – Feb 5 (4 days)</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Total Amount</div>
+              <div class="detail-value" style="color:#28a745">Rs 50,000</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Your Share (60%)</div>
+              <div class="detail-value" style="color:#28a745;font-size:1.1rem">Rs 30,000</div>
+            </div>
+          </div>
+          <div class="request-actions"><button class="dash-btn dash-btn-primary">View Profile</button><button
+              class="dash-btn dash-btn-success" onclick="ownerApprove('Ahmed Khan')"><i class="fas fa-check"></i>
+              Approve</button><button class="dash-btn dash-btn-danger" onclick="ownerDecline('Ahmed Khan')"><i
+                class="fas fa-times"></i> Decline</button></div>
+        </div>
+        <div class="request-card">
+          <div class="request-header">
+            <div class="renter-avatar" style="background:#17a2b8">S</div>
+            <div class="renter-info">
+              <h3>Sara Ali</h3>
+              <div class="renter-rating">⭐ 5.0 (25 trips) • <span style="color:#28a745;font-weight:600">Verified</span>
+              </div>
+            </div>
+          </div>
+          <div class="request-details">
+            <div class="detail-item">
+              <div class="detail-label">Car Requested</div>
+              <div class="detail-value">Toyota Corolla 2021</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Duration</div>
+              <div class="detail-value">Feb 3 – Feb 10 (7 days)</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Total Amount</div>
+              <div class="detail-value" style="color:#28a745">Rs 59,500</div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Your Share (60%)</div>
+              <div class="detail-value" style="color:#28a745;font-size:1.1rem">Rs 35,700</div>
+            </div>
+          </div>
+          <div class="request-actions"><button class="dash-btn dash-btn-primary">View Profile</button><button
+              class="dash-btn dash-btn-success" onclick="ownerApprove('Sara Ali')"><i class="fas fa-check"></i>
+              Approve</button><button class="dash-btn dash-btn-danger" onclick="ownerDecline('Sara Ali')"><i
+                class="fas fa-times"></i> Decline</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================================================================
+     INNER PAGE: PROFILE
+     ================================================================ -->
+  <div class="inner-page" id="page-profile">
+    <nav class="profile-navbar">
+      <div class="dash-logo">🚗 <span class="blue">Car</span><span class="green">Share</span></div>
+      <div class="profile-navbar-right">
+        <button class="prof-back-btn" onclick="profGoBack()"><i class="fas fa-arrow-left"></i> Back to
+          Dashboard</button>
+        <div class="user-avatar" id="prof-avatar-small">A</div>
+      </div>
+    </nav>
+    <main class="prof-main">
+      <div class="profile-header-box">
+        <div class="profile-avatar-large" id="prof-avatar-large">A</div>
+        <div class="profile-info-box">
+          <h1 id="prof-name">Ahmed Khan</h1>
+          <p id="prof-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+              data-cfemail="e98d8c8486a98a889b9a81889b8cc79982">[email&#160;protected]</a></p>
+          <div><span class="prof-badge prof-badge-verified"><i class="fas fa-check-circle"></i> Verified</span><span
+              class="prof-badge prof-badge-renter"><i class="fas fa-car"></i> Renter</span></div>
+          <p style="margin-top:10px;color:#6c757d"><i class="fas fa-calendar"></i> Member since January 2026</p>
+        </div>
+      </div>
+      <div class="prof-tabs">
+        <div class="prof-tab-nav">
+          <button class="prof-tab-btn active" data-tab="prof-personal"><i class="fas fa-user"></i> Personal
+            Info</button>
+          <button class="prof-tab-btn" data-tab="prof-documents"><i class="fas fa-id-card"></i> Documents</button>
+          <button class="prof-tab-btn" data-tab="prof-security"><i class="fas fa-shield-alt"></i> Security</button>
+          <button class="prof-tab-btn" data-tab="prof-preferences"><i class="fas fa-cog"></i> Preferences</button>
+        </div>
+        <!-- Personal Info Tab -->
+        <div class="prof-tab-content active" id="prof-personal-tab">
+          <h2 style="margin-bottom:25px;color:#212529">Personal Information</h2>
+          <div class="prof-form-row">
+            <div class="prof-form-group"><label>Full Name</label><input type="text" value="Ahmed Khan"></div>
+            <div class="prof-form-group"><label>Email Address</label><input type="email" value="demo@carshare.pk"
+                readonly style="background:#f8f9fa"></div>
+          </div>
+          <div class="prof-form-row">
+            <div class="prof-form-group"><label>Phone Number</label><input type="tel" value="+92 300 1234567"></div>
+            <div class="prof-form-group"><label>Date of Birth</label><input type="date" value="1995-05-15"></div>
+          </div>
+          <div class="prof-form-group"><label>Street Address</label><input type="text"
+              value="House 123, Street 5, Clifton"></div>
+          <div class="prof-form-row">
+            <div class="prof-form-group"><label>City</label><select>
+                <option>Karachi</option>
+                <option>Lahore</option>
+                <option>Islamabad</option>
+              </select></div>
+            <div class="prof-form-group"><label>Province</label><select>
+                <option>Sindh</option>
+                <option>Punjab</option>
+                <option>KPK</option>
+              </select></div>
+          </div>
+          <button class="prof-btn prof-btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+        </div>
+        <!-- Documents Tab -->
+        <div class="prof-tab-content" id="prof-documents-tab">
+          <h2 style="margin-bottom:25px;color:#212529">Verification Documents</h2>
+          <div class="document-grid">
+            <div class="document-card verified">
+              <div class="doc-icon verified"><i class="fas fa-id-card"></i></div>
+              <div class="doc-name">CNIC Front</div>
+              <div class="doc-status verified"><i class="fas fa-check-circle"></i> Verified</div><button
+                class="prof-btn prof-btn-outline" style="margin-top:15px;font-size:.85rem">View</button>
+            </div>
+            <div class="document-card verified">
+              <div class="doc-icon verified"><i class="fas fa-id-card"></i></div>
+              <div class="doc-name">CNIC Back</div>
+              <div class="doc-status verified"><i class="fas fa-check-circle"></i> Verified</div><button
+                class="prof-btn prof-btn-outline" style="margin-top:15px;font-size:.85rem">View</button>
+            </div>
+            <div class="document-card verified">
+              <div class="doc-icon verified"><i class="fas fa-id-badge"></i></div>
+              <div class="doc-name">Driving License</div>
+              <div class="doc-status verified"><i class="fas fa-check-circle"></i> Verified • Expires: Dec 2027</div>
+              <button class="prof-btn prof-btn-outline" style="margin-top:15px;font-size:.85rem">View</button>
+            </div>
+            <div class="document-card verified">
+              <div class="doc-icon verified"><i class="fas fa-camera"></i></div>
+              <div class="doc-name">Selfie Verification</div>
+              <div class="doc-status verified"><i class="fas fa-check-circle"></i> Verified</div><button
+                class="prof-btn prof-btn-outline" style="margin-top:15px;font-size:.85rem">View</button>
+            </div>
+          </div>
+          <p style="margin-top:25px;color:#6c757d;font-size:.9rem"><i class="fas fa-info-circle"></i> All documents are
+            verified and up to date.</p>
+        </div>
+        <!-- Security Tab -->
+        <div class="prof-tab-content" id="prof-security-tab">
+          <h2 style="margin-bottom:25px;color:#212529">Security Settings</h2>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px;margin-bottom:30px">
+            <h3 style="margin-bottom:15px;color:#212529">Change Password</h3>
+            <div class="prof-form-group"><label>Current Password</label><input type="password"
+                placeholder="Enter current password"></div>
+            <div class="prof-form-row">
+              <div class="prof-form-group"><label>New Password</label><input type="password"
+                  placeholder="Enter new password"></div>
+              <div class="prof-form-group"><label>Confirm Password</label><input type="password"
+                  placeholder="Confirm new password"></div>
+            </div>
+            <button class="prof-btn prof-btn-primary">Update Password</button>
+          </div>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px;margin-bottom:30px">
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Two-Factor Authentication</div>
+                <div class="setting-item-desc">Add extra security to your account</div>
+              </div><label class="prof-switch"><input type="checkbox"><span class="prof-slider"></span></label>
+            </div>
+          </div>
+          <h3 style="margin-bottom:15px;color:#212529">Login History</h3>
+          <table class="login-history-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Device</th>
+                <th>Location</th>
+                <th>IP Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jan 31, 2026 10:30 AM</td>
+                <td><i class="fas fa-laptop"></i> Chrome on Windows</td>
+                <td>Karachi, Pakistan</td>
+                <td>103.242.xxx.xxx</td>
+              </tr>
+              <tr>
+                <td>Jan 30, 2026 3:15 PM</td>
+                <td><i class="fas fa-mobile-alt"></i> Safari on iPhone</td>
+                <td>Karachi, Pakistan</td>
+                <td>103.242.xxx.xxx</td>
+              </tr>
+              <tr>
+                <td>Jan 29, 2026 9:20 AM</td>
+                <td><i class="fas fa-laptop"></i> Chrome on Windows</td>
+                <td>Karachi, Pakistan</td>
+                <td>103.242.xxx.xxx</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 style="margin:30px 0 15px;color:#212529">Active Sessions</h3>
+          <div class="session-card">
+            <div>
+              <div class="session-device"><i class="fas fa-laptop"></i> Chrome on Windows</div>
+              <div class="session-details">Karachi, Pakistan • Active Now</div>
+            </div><span style="color:#28a745;font-weight:600">This Device</span>
+          </div>
+          <button class="prof-btn prof-btn-danger"><i class="fas fa-sign-out-alt"></i> Sign Out All Other
+            Devices</button>
+          <div class="danger-zone">
+            <h3><i class="fas fa-exclamation-triangle"></i> Danger Zone</h3>
+            <p style="color:#6c757d;margin-bottom:15px">Once you delete your account, there is no going back. Please be
+              certain.</p><button class="prof-btn prof-btn-danger">Delete My Account</button>
+          </div>
+        </div>
+        <!-- Preferences Tab -->
+        <div class="prof-tab-content" id="prof-preferences-tab">
+          <h2 style="margin-bottom:25px;color:#212529">Preferences</h2>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px;margin-bottom:20px">
+            <h3 style="margin-bottom:15px;color:#212529">Language & Region</h3>
+            <div class="prof-form-row">
+              <div class="prof-form-group"><label>Language</label><select>
+                  <option>English</option>
+                  <option>Urdu</option>
+                </select></div>
+              <div class="prof-form-group"><label>Currency</label><select>
+                  <option>PKR (Rs)</option>
+                  <option>USD ($)</option>
+                </select></div>
+            </div>
+          </div>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px;margin-bottom:20px">
+            <h3 style="margin-bottom:15px;color:#212529">Notifications</h3>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Email Notifications</div>
+                <div class="setting-item-desc">Receive updates via email</div>
+              </div><label class="prof-switch"><input type="checkbox" checked><span class="prof-slider"></span></label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">SMS Notifications</div>
+                <div class="setting-item-desc">Receive updates via SMS</div>
+              </div><label class="prof-switch"><input type="checkbox" checked><span class="prof-slider"></span></label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Push Notifications</div>
+                <div class="setting-item-desc">Receive push notifications</div>
+              </div><label class="prof-switch"><input type="checkbox"><span class="prof-slider"></span></label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Promotional Emails</div>
+                <div class="setting-item-desc">Receive offers and promotions</div>
+              </div><label class="prof-switch"><input type="checkbox"><span class="prof-slider"></span></label>
+            </div>
+          </div>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px;margin-bottom:20px">
+            <h3 style="margin-bottom:15px;color:#212529">Display</h3>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Dark Mode</div>
+                <div class="setting-item-desc">Use dark theme</div>
+              </div><label class="prof-switch"><input type="checkbox"><span class="prof-slider"></span></label>
+            </div>
+          </div>
+          <div style="background:#f8f9fa;padding:20px;border-radius:12px">
+            <h3 style="margin-bottom:15px;color:#212529">Privacy</h3>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Profile Visibility</div>
+                <div class="setting-item-desc">Show profile to other users</div>
+              </div><label class="prof-switch"><input type="checkbox" checked><span class="prof-slider"></span></label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <div class="setting-item-label">Show Online Status</div>
+                <div class="setting-item-desc">Let others see when you're active</div>
+              </div><label class="prof-switch"><input type="checkbox" checked><span class="prof-slider"></span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
