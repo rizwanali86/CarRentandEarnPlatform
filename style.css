@@ -1369,6 +1369,122 @@
       cursor: pointer
     }
 
+    /* Footer responsive fixes: ensure footer elements wrap and scale on all devices */
+    .footer-newsletter .newsletter-form {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-newsletter .newsletter-form input,
+    .footer-newsletter .newsletter-form button {
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .app-badge,
+    .payment-logo {
+      max-width: 140px;
+      height: auto;
+    }
+
+    .footer-column p {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width:768px) {
+      .footer-newsletter {
+        padding: 30px 0;
+      }
+
+      .newsletter-content h3 {
+        font-size: 1.4rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 100%;
+        padding: 0 12px;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .app-badges,
+      .payment-methods,
+      .social-icons {
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+
+    /* Extra small screens tweaks */
+    @media (max-width:480px) {
+      .newsletter-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .footer-column {
+        min-width: 0;
+        word-wrap: break-word;
+      }
+
+      .footer-column h4 {
+        font-size: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.95rem;
+        gap: 6px;
+      }
+
+      .app-badges {
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .app-badge {
+        max-width: 120px;
+        height: auto;
+      }
+
+      .payment-logo {
+        max-width: 90px;
+        height: auto;
+      }
+
+      .footer-bottom {
+        gap: 10px;
+      }
+
+      .footer-bottom > div,
+      .footer-bottom p {
+        width: 100%;
+        text-align: center;
+      }
+
+      .language-selector {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
     .back-to-top {
       position: fixed;
       bottom: 30px;
